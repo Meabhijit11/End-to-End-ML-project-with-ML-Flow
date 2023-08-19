@@ -2,6 +2,7 @@ from MLProject import logger
 from MLProject.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from MLProject.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
 from MLProject.pipeline.stage_03_data_transformation import DataTransformationTrainingPipeline
+from MLProject.pipeline.stage_04_model_trainer import ModelTrainerTrainingPipeline
 
 
 
@@ -32,6 +33,17 @@ if __name__ == '__main__':
         logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
         data_transformation = DataTransformationTrainingPipeline()
         data_transformation.main()
+        logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+    except Exception as e:
+        logger.exception(e)
+        raise e
+
+
+if __name__ == '__main__':
+    try:
+        logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+        model_trainer_config = ModelTrainerTrainingPipeline()
+        model_trainer_config.main()
         logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     except Exception as e:
         logger.exception(e)
