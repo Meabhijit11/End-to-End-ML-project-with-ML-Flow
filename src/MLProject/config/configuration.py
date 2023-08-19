@@ -2,7 +2,6 @@ from MLProject.constants import *
 from MLProject.utils.common import read_yaml, create_directories
 from MLProject.entity.config_entity import DataIngestionConfig
 
-
 class ConfigurationManager:
     def __init__(
             self,
